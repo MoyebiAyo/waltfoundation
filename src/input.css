@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+  body { @apply bg-cream-50 text-ink-900 font-sans; }
+  h1,h2,h3,h4 { @apply font-display tracking-tight text-ink-900; }
+  ::selection { @apply bg-amber-200 text-ink-900; }
+  :focus-visible { outline: 2px solid theme('colors.forest.600'); outline-offset: 3px; }
+}
+
+@layer components {
+  .container-x { @apply mx-auto w-full max-w-8xl px-5 sm:px-8 lg:px-12; }
+
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold tracking-wide transition-all duration-200; }
+  .btn-primary { @apply bg-amber-400 text-ink-900 hover:bg-amber-300 hover:shadow-soft; }
+  .btn-forest { @apply bg-forest-700 text-cream-50 hover:bg-forest-600; }
+  .btn-ghost { @apply border border-forest-700/20 text-forest-800 hover:border-forest-700 hover:bg-forest-50; }
+
+  .eyebrow { @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.22em] text-amber-700; }
+  .eyebrow::before { content:''; @apply h-px w-8 bg-amber-500; }
+
+  .card { @apply rounded-3xl bg-white shadow-card ring-1 ring-ink-900/5; }
+
+  .link-underline { @apply relative after:absolute after:inset-x-0 after:-bottom-0.5 after:h-px after:origin-left after:scale-x-0 after:bg-current after:transition-transform; }
+  .link-underline:hover::after { @apply scale-x-100; }
+
+  .nav-link { @apply text-sm font-medium text-ink-800/80 hover:text-forest-700 transition-colors; }
+
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity .7s cubic-bezier(.22,.61,.36,1), transform .7s cubic-bezier(.22,.61,.36,1); }
+  .reveal.is-in { opacity: 1; transform: none; }
+}
+
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+  .text-pretty { text-wrap: pretty; }
+  .bg-grain {
+    background-image: radial-gradient(rgba(15,48,38,0.035) 1px, transparent 1px);
+    background-size: 4px 4px;
+  }
+  .mask-fade-b { -webkit-mask-image: linear-gradient(to bottom, #000 60%, transparent); mask-image: linear-gradient(to bottom, #000 60%, transparent); }
+}
