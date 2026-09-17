@@ -2,7 +2,11 @@ const sharp = require('sharp');
 const fs = require('fs');
 const path = require('path');
 
-const SRC = 'C:\\Users\\NEW USER\\Downloads\\Walts Foundation';
+// Sources are resolved against these roots in order.
+const ROOTS = [
+  'C:\\Users\\NEW USER\\Downloads\\Walt foundation',
+  'C:\\Users\\NEW USER\\Downloads\\Walts Foundation'
+];
 const DEST = path.join(__dirname, '..', 'assets', 'img');
 
 const presets = {
@@ -13,6 +17,14 @@ const presets = {
   cert: { w: 1000, q: 82 },
   logo: { w: 600, q: 90 }
 };
+
+function resolveSrc(rel) {
+  for (const root of ROOTS) {
+    const abs = path.join(root, rel);
+    if (fs.existsSync(abs)) return abs;
+  }
+  return null;
+}
 
 // Clean slug from a filename
 function slug(name) {
@@ -33,7 +45,9 @@ const tasks = [
   { src: 'Certificates\\Special Control Unit Against Money Laundry.png', preset: 'cert', out: 'cert-scuml' },
   { src: 'Team\\Princess Bridget Tola Ogundipe Founder.png', preset: 'team', out: 'team-bridget' },
   { src: 'Team\\Architect Adewale Sunday Ogundipe - Co founder.png', preset: 'team', out: 'team-adewale' },
-  { src: 'Team\\King Babatunde Adeyeye Enitan Oluwatunmise Ogunwusi - The Patron.png', preset: 'team', out: 'team-babatunde' }
+  { src: 'Team\\King Babatunde Adeyeye Enitan Oluwatunmise Ogunwusi - The Patron.png', preset: 'team', out: 'team-babatunde' },
+  { src: 'Team\\Head of administration Ajanlekoko Tunbi.png', preset: 'team', out: 'team-tunbi' },
+  { src: 'Image of Founder and Patron\\WhatsApp Image 2026-09-16 at 7.36.13 PM.jpeg', preset: 'team', out: 'founder-patron' }
 ];
 
 // Full-res outreach images only (skip 160x160 thumbnails). Map to clean names.
@@ -56,22 +70,39 @@ const outreach = [
   '471917810_122198764406208734_8695268858030358439_n.jpg'
 ];
 
-// generate thumb (grid) + full (wide) for each outreach image
-const gallery = [];
 outreach.forEach((f, i) => {
   const base = `outreach-${String(i + 1).padStart(2, '0')}`;
   tasks.push({ src: `Outreach Images\\${f}`, preset: 'wide', out: base });
   tasks.push({ src: `Outreach Images\\${f}`, preset: 'grid', out: `${base}-thumb` });
-  gallery.push(base);
 });
+
+// New gallery drop (2026): founder-led community outreach photos.
+const newGallery = [
+  'WhatsApp Image 2026-07-31 at 5.46.22 PM.jpeg', // community visit with women and girls
+  'WhatsApp Image 2026-07-31 at 5.46.48 PM.jpeg', // food-pack distribution
+  'WhatsApp Image 2026-07-31 at 5.48.38 PM.jpeg', // schoolchildren engagement
+  'WhatsApp Image 2026-07-31 at 5.50.40 PM.jpeg', // founder on site
+  'WhatsApp Image 2026-07-31 at 5.50.58 PM.jpeg'  // group photo with children and volunteers
+];
+
+newGallery.forEach((f, i) => {
+  const base = `outreach-${String(outreach.length + i + 1).padStart(2, '0')}`;
+  tasks.push({ src: `Gallery\\${f}`, preset: 'wide', out: base });
+  tasks.push({ src: `Gallery\\${f}`, preset: 'grid', out: `${base}-thumb` });
+});
+
+// Manifest covers every outreach image the site uses (01–21).
+const gallery = tasks
+  .filter(t => /^outreach-\d+$/.test(t.out))
+  .map(t => t.out);
 
 fs.mkdirSync(DEST, { recursive: true });
 
 (async () => {
   for (const t of tasks) {
     const p = presets[t.preset];
-    const abs = path.join(SRC, t.src);
-    if (!fs.existsSync(abs)) { console.warn('MISSING', t.src); continue; }
+    const abs = resolveSrc(t.src);
+    if (!abs) { console.warn('MISSING', t.src); continue; }
     const outPath = path.join(DEST, `${t.out}.webp`);
     try {
       await sharp(abs)
@@ -82,7 +113,6 @@ fs.mkdirSync(DEST, { recursive: true });
       console.log('OK', t.out);
     } catch (e) { console.error('FAIL', t.out, e.message); }
   }
-  // also write a gallery manifest the JS can consume
   fs.writeFileSync(path.join(__dirname, '..', 'assets', 'gallery.json'),
     JSON.stringify(gallery, null, 2));
   console.log('DONE, gallery images:', gallery.length);

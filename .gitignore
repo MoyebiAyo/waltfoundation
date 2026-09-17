@@ -3,3 +3,4 @@ node_modules/
 assets/gallery.json
 
 .vercel
+.zcode/

@@ -23,6 +23,10 @@ module.exports = {
         display: ['"Fraunces"', 'ui-serif', 'Georgia', 'serif'],
         sans: ['"Hanken Grotesk"', 'ui-sans-serif', 'system-ui', 'sans-serif']
       },
+      fontWeight: {
+        500: '500',
+        600: '600'
+      },
       maxWidth: { '8xl': '88rem', prose: '68ch' },
       boxShadow: {
         soft: '0 1px 2px rgba(15,48,38,0.06), 0 12px 30px -12px rgba(15,48,38,0.18)',
