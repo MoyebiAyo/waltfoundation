@@ -15,7 +15,7 @@
     // close on link click (mobile)
     panel.querySelectorAll('a').forEach(function (a) {
       a.addEventListener('click', function () {
-        if (window.innerWidth < 768) {
+        if (window.innerWidth < 1024) {
           panel.classList.add('hidden');
           btn.setAttribute('aria-expanded', 'false');
           document.body.classList.remove('overflow-hidden');
