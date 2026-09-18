@@ -5,7 +5,8 @@ const path = require('path');
 // Sources are resolved against these roots in order.
 const ROOTS = [
   'C:\\Users\\NEW USER\\Downloads\\Walt foundation',
-  'C:\\Users\\NEW USER\\Downloads\\Walts Foundation'
+  'C:\\Users\\NEW USER\\Downloads\\Walts Foundation',
+  'C:\\Users\\NEW USER\\Downloads'
 ];
 const DEST = path.join(__dirname, '..', 'assets', 'img');
 
@@ -47,7 +48,9 @@ const tasks = [
   { src: 'Team\\Architect Adewale Sunday Ogundipe - Co founder.png', preset: 'team', out: 'team-adewale' },
   { src: 'Team\\King Babatunde Adeyeye Enitan Oluwatunmise Ogunwusi - The Patron.png', preset: 'team', out: 'team-babatunde' },
   { src: 'Team\\Head of administration Ajanlekoko Tunbi.png', preset: 'team', out: 'team-tunbi' },
-  { src: 'Image of Founder and Patron\\WhatsApp Image 2026-09-16 at 7.36.13 PM.jpeg', preset: 'team', out: 'founder-patron' }
+  { src: 'Image of Founder and Patron\\WhatsApp Image 2026-09-16 at 7.36.13 PM.jpeg', preset: 'team', out: 'founder-patron' },
+  { src: 'Adeleye Bankole Samuel.png', preset: 'team', out: 'team-adeleye' },
+  { src: 'Barister Abidemi Elukunmi Eluyemi.png', preset: 'team', out: 'team-eluyemi' }
 ];
 
 // Full-res outreach images only (skip 160x160 thumbnails). Map to clean names.
@@ -82,7 +85,6 @@ const newGallery = [
   'WhatsApp Image 2026-07-31 at 5.46.48 PM.jpeg', // food-pack distribution
   'WhatsApp Image 2026-07-31 at 5.48.38 PM.jpeg', // schoolchildren engagement
   'WhatsApp Image 2026-07-31 at 5.50.40 PM.jpeg', // founder on site
-  'WhatsApp Image 2026-07-31 at 5.50.58 PM.jpeg'  // group photo with children and volunteers
 ];
 
 newGallery.forEach((f, i) => {

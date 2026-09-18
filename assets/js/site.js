@@ -45,6 +45,18 @@
     els.forEach(function (e) { io.observe(e); });
   }
 
+  // ---------- Hero slideshow ----------
+  function initHeroSlideshow() {
+    var slides = document.querySelectorAll('[data-hero-slideshow] .hero-slide');
+    if (slides.length < 2) return;
+    var idx = 0;
+    setInterval(function () {
+      slides[idx].classList.remove('is-active');
+      idx = (idx + 1) % slides.length;
+      slides[idx].classList.add('is-active');
+    }, 5000);
+  }
+
   // ---------- Impact log (gallery.html#impact) ----------
   function initImpact() {
     var root = document.getElementById('impact-log');
@@ -54,17 +66,14 @@
       var imgs = (o.images || []).map(function (im) {
         return '<img data-lightbox data-full="' + im.full + '" data-caption="' + im.caption + '"' +
           ' src="' + im.thumb + '" alt="' + im.alt + '" loading="lazy"' +
-          ' class="mb-4 w-full rounded-2xl ring-1 ring-ink-900/5 cursor-zoom-in hover:opacity-95 transition-opacity reveal">';
+          ' class="aspect-[4/3] w-full object-cover rounded-2xl ring-1 ring-ink-900/5 cursor-zoom-in hover:opacity-95 transition-opacity reveal">';
       }).join('');
       html +=
         '<article class="reveal card p-7 sm:p-9" data-delay="' + (i * 80) + '">' +
-        '<div class="flex flex-wrap items-baseline justify-between gap-3">' +
         '<p class="eyebrow">' + o.date + ' · ' + o.location + '</p>' +
-        (o.reach ? '<p class="text-xs font-semibold uppercase tracking-[0.18em] text-forest-700">' + o.reach + '</p>' : '') +
-        '</div>' +
         '<h3 class="mt-3 font-display text-2xl font-600">' + o.title + '</h3>' +
         '<p class="mt-3 text-ink-900/75 leading-relaxed text-pretty max-w-3xl">' + o.delivered + '</p>' +
-        (imgs ? '<div class="mt-6 columns-2 sm:columns-3 lg:columns-4 gap-4">' + imgs + '</div>' : '') +
+        (imgs ? '<div class="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-4">' + imgs + '</div>' : '') +
         '</article>';
     });
     root.innerHTML = html;
@@ -201,6 +210,6 @@
     else document.addEventListener('DOMContentLoaded', fn);
   }
   ready(function () {
-    initImpact(); initNav(); initReveal(); initLightbox(); initDonate(); initMisc();
+    initImpact(); initHeroSlideshow(); initNav(); initReveal(); initLightbox(); initDonate(); initMisc();
   });
 })();

@@ -7,7 +7,6 @@ window.IMPACT_OUTREACHES = [
     location: '[Community], Osun State',
     title: 'Community relief & school outreach',
     delivered: 'The Foundation team visited a rural community, distributing bread and food packs to women and children and holding an engagement session with pupils at the community school — practical relief for households in acute need, delivered face to face.',
-    reach: '[Households and children reached — to be confirmed]',
     images: [
       {
         thumb: 'assets/img/outreach-17-thumb.webp',
@@ -28,10 +27,10 @@ window.IMPACT_OUTREACHES = [
         alt: 'The Foundation\'s founder engages pupils during a school session'
       },
       {
-        thumb: 'assets/img/outreach-21-thumb.webp',
-        full: 'assets/img/outreach-21.webp',
-        caption: 'Children and volunteers at the community outreach',
-        alt: 'Children and volunteers gathered with the Foundation team at the community hall'
+        thumb: 'assets/img/outreach-20-thumb.webp',
+        full: 'assets/img/outreach-20.webp',
+        caption: 'The Foundation\'s founder on site during a community outreach',
+        alt: 'The Foundation\'s founder on site during a community outreach'
       }
     ]
   }

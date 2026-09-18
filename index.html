@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/site.css?v=20260917">
+<link rel="stylesheet" href="assets/css/site.css?v=20260918b">
 </head>
 <body>
 
@@ -61,8 +61,13 @@
 
 <!-- Hero -->
 <section class="relative overflow-hidden">
-  <img src="assets/img/hero-mobile.webp" alt="Community outreach by Walts Foundation in a rural Nigerian community" class="md:hidden absolute inset-0 h-full w-full object-cover">
-  <img src="assets/img/hero.webp" alt="Community outreach by Walts Foundation in a rural Nigerian community" class="hidden md:block absolute inset-0 h-full w-full object-cover">
+  <div data-hero-slideshow class="absolute inset-0" aria-hidden="true">
+    <img src="assets/img/hero.webp" alt="" class="hero-slide is-active">
+    <img src="assets/img/outreach-19.webp" alt="" class="hero-slide">
+    <img src="assets/img/outreach-18.webp" alt="" class="hero-slide">
+    <img src="assets/img/outreach-16.webp" alt="" class="hero-slide">
+    <img src="assets/img/outreach-17.webp" alt="" class="hero-slide">
+  </div>
   <div class="absolute inset-0 bg-gradient-to-t from-ink-900/95 via-ink-900/55 to-ink-900/20"></div>
   <div class="relative container-x min-h-[80vh] sm:min-h-[88vh] flex flex-col justify-end pb-12 sm:pb-16">
     <div class="max-w-5xl reveal">
@@ -77,6 +82,49 @@
         <a href="contact.html#partner" class="btn btn-primary text-base sm:text-lg px-8 sm:px-10 py-4 sm:py-5">Partner With Us</a>
         <a href="gallery.html#impact" class="btn btn-ghost text-base sm:text-lg px-8 sm:px-10 py-4 sm:py-5 text-cream-50 border-cream-50/30 hover:bg-cream-50/10">See Our Impact</a>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- Impact in motion — video -->
+<section class="py-16 sm:py-24 bg-ink-900 text-cream-50 relative bg-grain">
+  <div class="container-x">
+    <div class="max-w-2xl reveal">
+      <p class="eyebrow text-amber-300">Watch</p>
+      <h2 class="mt-4 font-display text-3xl sm:text-4xl lg:text-5xl font-600 text-cream-50 text-balance">Impact, in motion.</h2>
+      <p class="mt-4 text-lg text-cream-100/75 text-pretty">Real footage from the field — relief prepared with care, delivered face to face, and received with joy. Press play and see what support makes possible.</p>
+    </div>
+    <div class="mt-12 grid md:grid-cols-3 gap-6">
+      <figure class="reveal rounded-3xl overflow-hidden bg-forest-800/60 ring-1 ring-cream-50/10">
+        <div class="relative">
+          <video src="assets/videos/feeding-relief.mp4" poster="assets/img/video-feeding.webp" controls preload="none" playsinline class="w-full aspect-video object-cover"></video>
+          <span class="absolute top-3 left-3 rounded-full bg-ink-900/70 text-cream-50 text-xs font-semibold px-3 py-1">9:34</span>
+        </div>
+        <figcaption class="p-6">
+          <p class="text-xs font-semibold uppercase tracking-[0.2em] text-amber-300">Feeding &amp; community relief</p>
+          <p class="mt-2 text-sm text-cream-100/70 leading-relaxed">Hot meals cooked in bulk and served to children and families — relief you can watch happen.</p>
+        </figcaption>
+      </figure>
+      <figure class="reveal rounded-3xl overflow-hidden bg-forest-800/60 ring-1 ring-cream-50/10" data-delay="100">
+        <div class="relative">
+          <video src="assets/videos/relief-materials-printing.mp4" poster="assets/img/video-printing.webp" controls preload="none" playsinline class="w-full aspect-video object-cover"></video>
+          <span class="absolute top-3 left-3 rounded-full bg-ink-900/70 text-cream-50 text-xs font-semibold px-3 py-1">5:18</span>
+        </div>
+        <figcaption class="p-6">
+          <p class="text-xs font-semibold uppercase tracking-[0.2em] text-amber-300">Behind the scenes</p>
+          <p class="mt-2 text-sm text-cream-100/70 leading-relaxed">Every outreach begins long before the field — relief materials printed and prepared with care.</p>
+        </figcaption>
+      </figure>
+      <figure class="reveal rounded-3xl overflow-hidden bg-forest-800/60 ring-1 ring-cream-50/10" data-delay="200">
+        <div class="relative">
+          <video src="assets/videos/school-pupils-relief.mp4" poster="assets/img/video-school.webp" controls preload="none" playsinline class="w-full aspect-video object-cover"></video>
+          <span class="absolute top-3 left-3 rounded-full bg-ink-900/70 text-cream-50 text-xs font-semibold px-3 py-1">5:42</span>
+        </div>
+        <figcaption class="p-6">
+          <p class="text-xs font-semibold uppercase tracking-[0.2em] text-amber-300">Reaching the unreached</p>
+          <p class="mt-2 text-sm text-cream-100/70 leading-relaxed">Learning and relief items placed in the hands of pupils other programmes never reach.</p>
+        </figcaption>
+      </figure>
     </div>
   </div>
 </section>
@@ -171,12 +219,13 @@
       </div>
       <a href="gallery.html" class="btn btn-ghost">View full gallery →</a>
     </div>
-    <div class="mt-12 columns-2 md:columns-3 gap-4 [column-fill:_balance]">
-      <img data-lightbox data-full="assets/img/outreach-01.webp" data-caption="Walts Foundation community outreach" src="assets/img/outreach-01-thumb.webp" alt="Community outreach by Walts Foundation" loading="lazy" class="mb-4 w-full rounded-2xl ring-1 ring-ink-900/5 cursor-zoom-in hover:opacity-95 transition-opacity reveal">
-      <img data-lightbox data-full="assets/img/outreach-03.webp" data-caption="Reaching rural communities" src="assets/img/outreach-03-thumb.webp" alt="Rural community engagement" loading="lazy" class="mb-4 w-full rounded-2xl ring-1 ring-ink-900/5 cursor-zoom-in hover:opacity-95 transition-opacity reveal">
-      <img data-lightbox data-full="assets/img/outreach-05.webp" data-caption="Meeting with women and families" src="assets/img/outreach-05-thumb.webp" alt="Meeting with women and families" loading="lazy" class="mb-4 w-full rounded-2xl ring-1 ring-ink-900/5 cursor-zoom-in hover:opacity-95 transition-opacity reveal">
-      <img data-lightbox data-full="assets/img/outreach-21.webp" data-caption="Children and volunteers at the community outreach" src="assets/img/outreach-21-thumb.webp" alt="Children and volunteers at the community outreach" loading="lazy" class="mb-4 w-full rounded-2xl ring-1 ring-ink-900/5 cursor-zoom-in hover:opacity-95 transition-opacity reveal">
-      <img data-lightbox data-full="assets/img/outreach-10.webp" data-caption="On the ground with the community" src="assets/img/outreach-10-thumb.webp" alt="On the ground with the community" loading="lazy" class="mb-4 w-full rounded-2xl ring-1 ring-ink-900/5 cursor-zoom-in hover:opacity-95 transition-opacity reveal">
+    <div class="mt-12 grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-5">
+      <img data-lightbox data-full="assets/img/outreach-01.webp" data-caption="Walts Foundation community outreach" src="assets/img/outreach-01-thumb.webp" alt="Community outreach by Walts Foundation" loading="lazy" class="aspect-[4/3] w-full object-cover rounded-2xl ring-1 ring-ink-900/5 cursor-zoom-in hover:opacity-95 transition-opacity reveal">
+      <img data-lightbox data-full="assets/img/outreach-03.webp" data-caption="Reaching rural communities" src="assets/img/outreach-03-thumb.webp" alt="Rural community engagement" loading="lazy" class="aspect-[4/3] w-full object-cover rounded-2xl ring-1 ring-ink-900/5 cursor-zoom-in hover:opacity-95 transition-opacity reveal">
+      <img data-lightbox data-full="assets/img/outreach-05.webp" data-caption="Meeting with women and families" src="assets/img/outreach-05-thumb.webp" alt="Meeting with women and families" loading="lazy" class="aspect-[4/3] w-full object-cover rounded-2xl ring-1 ring-ink-900/5 cursor-zoom-in hover:opacity-95 transition-opacity reveal">
+      <img data-lightbox data-full="assets/img/outreach-18.webp" data-caption="Food packs distributed at a community relief outreach" src="assets/img/outreach-18-thumb.webp" alt="Food packs distributed at a community relief outreach" loading="lazy" class="aspect-[4/3] w-full object-cover rounded-2xl ring-1 ring-ink-900/5 cursor-zoom-in hover:opacity-95 transition-opacity reveal">
+      <img data-lightbox data-full="assets/img/outreach-10.webp" data-caption="On the ground with the community" src="assets/img/outreach-10-thumb.webp" alt="On the ground with the community" loading="lazy" class="aspect-[4/3] w-full object-cover rounded-2xl ring-1 ring-ink-900/5 cursor-zoom-in hover:opacity-95 transition-opacity reveal">
+      <img data-lightbox data-full="assets/img/outreach-09.webp" data-caption="Foundation volunteers at work" src="assets/img/outreach-09-thumb.webp" alt="Foundation volunteers at work" loading="lazy" class="aspect-[4/3] w-full object-cover rounded-2xl ring-1 ring-ink-900/5 cursor-zoom-in hover:opacity-95 transition-opacity reveal">
     </div>
   </div>
 </section>
@@ -310,6 +359,6 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=20260917" defer></script>
+<script src="assets/js/site.js?v=20260918b" defer></script>
 </body>
 </html>

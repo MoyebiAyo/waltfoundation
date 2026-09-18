@@ -30,6 +30,9 @@
 
   .reveal { opacity: 0; transform: translateY(20px); transition: opacity .7s cubic-bezier(.22,.61,.36,1), transform .7s cubic-bezier(.22,.61,.36,1); }
   .reveal.is-in { opacity: 1; transform: none; }
+
+  .hero-slide { @apply absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-1000; }
+  .hero-slide.is-active { @apply opacity-100; }
 }
 
 @layer utilities {
