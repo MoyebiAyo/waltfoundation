@@ -50,7 +50,10 @@ const tasks = [
   { src: 'Team\\Head of administration Ajanlekoko Tunbi.png', preset: 'team', out: 'team-tunbi' },
   { src: 'Image of Founder and Patron\\WhatsApp Image 2026-09-16 at 7.36.13 PM.jpeg', preset: 'team', out: 'founder-patron' },
   { src: 'Adeleye Bankole Samuel.png', preset: 'team', out: 'team-adeleye' },
-  { src: 'Barister Abidemi Elukunmi Eluyemi.png', preset: 'team', out: 'team-eluyemi' }
+  { src: 'Barister Abidemi Elukunmi Eluyemi.png', preset: 'team', out: 'team-eluyemi' },
+  { src: 'ChatGPT Image Sep 22, 2026, 10_01_35 AM.png', preset: 'team', out: 'team-olagoke' },
+  { src: 'Ayodele.jpeg', preset: 'team', out: 'team-ayodele' },
+  { src: 'THE TEAM.png', preset: 'hero', out: 'hero-team' }
 ];
 
 // Full-res outreach images only (skip 160x160 thumbnails). Map to clean names.
