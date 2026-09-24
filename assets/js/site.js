@@ -190,7 +190,7 @@
       });
     });
 
-    setAmount(25000);
+    setAmount(250000);
   }
 
   // ---------- Footer year + active nav ----------
