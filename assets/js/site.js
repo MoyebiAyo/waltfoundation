@@ -45,6 +45,62 @@
     els.forEach(function (e) { io.observe(e); });
   }
 
+  // ---------- Contact form ----------
+  function initContactForm() {
+    var form = document.getElementById('contact-form');
+    if (!form) return;
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (form.company_website.value) return; // honeypot
+
+      var status = form.querySelector('[data-form-status]');
+      var btn = form.querySelector('button[type="submit"]');
+      var data = {
+        name: form.name.value.trim(),
+        email: form.email.value.trim(),
+        phone: form.phone.value.trim(),
+        topic: form.topic.value,
+        message: form.message.value.trim()
+      };
+
+      function show(text, cls) {
+        status.className = 'text-sm font-semibold ' + cls;
+        status.textContent = text;
+      }
+
+      if (!data.name || !data.email || !data.message) {
+        show('Please fill in your name, email and message.', 'text-amber-700');
+        return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+      status.className = 'hidden text-sm font-semibold';
+      status.textContent = '';
+
+      fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      })
+        .then(function (r) {
+          return r.json().then(function (j) { return { ok: r.ok, j: j }; });
+        })
+        .then(function (res) {
+          if (!res.ok) throw new Error(res.j.error || 'Failed');
+          form.reset();
+          show('Thank you, ' + data.name + '! Your message has been sent — a confirmation is on its way to your inbox.', 'text-forest-700');
+        })
+        .catch(function () {
+          show('Something went wrong — please try again, or reach us on WhatsApp at 0811 327 3077.', 'text-amber-700');
+        })
+        .then(function () {
+          btn.disabled = false;
+          btn.textContent = 'Send message';
+        });
+    });
+  }
+
   // ---------- Hero slideshow ----------
   function initHeroSlideshow() {
     var slides = document.querySelectorAll('[data-hero-slideshow] .hero-slide');
@@ -210,6 +266,6 @@
     else document.addEventListener('DOMContentLoaded', fn);
   }
   ready(function () {
-    initImpact(); initHeroSlideshow(); initNav(); initReveal(); initLightbox(); initDonate(); initMisc();
+    initImpact(); initHeroSlideshow(); initNav(); initReveal(); initLightbox(); initDonate(); initContactForm(); initMisc();
   });
 })();
