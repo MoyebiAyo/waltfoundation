@@ -49,7 +49,6 @@ export default async function handler(req, res) {
     '<tr><td style="padding:30px 32px;font-size:15px;line-height:1.65;color:#22332c;">' + inner + '</td></tr>' +
     '<tr><td style="background:#f3ead8;padding:18px 32px;font-size:12px;line-height:1.7;color:#5a6b62;">' +
     '<strong style="color:#194f3b;">Walts Charity &amp; Empowerment Foundation</strong><br>' +
-    'CAC RC 7007514 · SCUML SC 301401186 · Osun State Certified<br>' +
     '<a href="https://www.waltscharityef.com" style="color:#194f3b;">www.waltscharityef.com</a> · WhatsApp: 0811 327 3077' +
     '</td></tr></table></td></tr></table></body></html>';
 
