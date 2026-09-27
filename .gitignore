@@ -6,3 +6,4 @@ assets/gallery.json
 .zcode/
 
 .env*.local
+assets/videos/*-src.mp4

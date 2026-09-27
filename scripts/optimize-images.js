@@ -53,7 +53,13 @@ const tasks = [
   { src: 'Barister Abidemi Elukunmi Eluyemi.png', preset: 'team', out: 'team-eluyemi' },
   { src: 'ChatGPT Image Sep 22, 2026, 10_01_35 AM.png', preset: 'team', out: 'team-olagoke' },
   { src: 'Ayodele.jpeg', preset: 'team', out: 'team-ayodele' },
-  { src: 'THE TEAM.png', preset: 'hero', out: 'hero-team' }
+  { src: 'THE TEAM.png', preset: 'hero', out: 'hero-team' },
+  { src: 'Founder with Osun state first lady\\473164742_514824538281300_239223228794975317_n.jpg', preset: 'wide', out: 'firstlady-01' },
+  { src: 'Founder with Osun state first lady\\473364030_514824541614633_3059266052952771396_n.jpg', preset: 'wide', out: 'firstlady-02' },
+  { src: 'Founder with Osun state first lady\\473450336_514824508281303_1766908782376369980_n.jpg', preset: 'wide', out: 'firstlady-03' },
+  { src: 'Founder with Osun state first lady\\472796959_514824511614636_5483755308061550633_n.jpg', preset: 'wide', out: 'firstlady-04' },
+  { src: 'Founder with Osun state first lady\\473352001_514824464947974_3676463291552653566_n.jpg', preset: 'wide', out: 'firstlady-05' },
+  { src: 'Founder with Osun state first lady\\473560708_514824578281296_7930516061714433692_n.jpg', preset: 'wide', out: 'firstlady-06' }
 ];
 
 // Full-res outreach images only (skip 160x160 thumbnails). Map to clean names.
