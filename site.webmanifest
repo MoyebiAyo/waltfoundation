@@ -1,0 +1,13 @@
+{
+  "name": "Walts Charity and Empowerment Foundation",
+  "short_name": "Walts Foundation",
+  "description": "A registered Nigerian non-profit restoring dignity, safety and opportunity to women, children, widows and orphans in rural communities.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fdfbf7",
+  "theme_color": "#15211d",
+  "icons": [
+    { "src": "/assets/img/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/assets/img/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
