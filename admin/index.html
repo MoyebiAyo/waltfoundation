@@ -6,14 +6,127 @@
 <meta name="robots" content="noindex, nofollow">
 <title>Content Manager — Walts Charity &amp; Empowerment Foundation</title>
 <link rel="icon" href="../assets/img/favicon-32x32.png" sizes="32x32" type="image/png">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  body { margin: 0; background: #fdfbf7; font-family: "Hanken Grotesk", system-ui, sans-serif; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #fdfbf7; font-family: "Hanken Grotesk", system-ui, sans-serif; color: #15211d; }
+  .gate { min-height: 100vh; display: grid; place-items: center; padding: 24px; }
+  .card { width: 100%; max-width: 26rem; background: #fff; border: 1px solid rgba(21,33,29,.08); border-radius: 2rem; box-shadow: 0 2px 4px rgba(15,48,38,.05), 0 24px 48px -24px rgba(15,48,38,.22); padding: 2.5rem 2.25rem; }
+  .logo { display: flex; justify-content: center; margin-bottom: 1.5rem; }
+  .logo img { height: 4rem; width: 4rem; border-radius: 9999px; object-fit: cover; }
+  h1 { font-family: "Fraunces", Georgia, serif; font-size: 1.55rem; font-weight: 600; text-align: center; margin: 0 0 .35rem; }
+  .sub { text-align: center; color: rgba(21,33,29,.6); font-size: .9rem; margin: 0 0 1.75rem; }
+  label { display: block; font-size: .8rem; font-weight: 600; color: rgba(21,33,29,.7); margin: 0 0 .35rem; }
+  input { width: 100%; border: 2px solid rgba(21,33,29,.1); background: #fff; border-radius: 1rem; padding: .8rem 1rem; font: inherit; color: inherit; outline: none; transition: border-color .15s; margin-bottom: 1rem; }
+  input:focus { border-color: #1f6249; }
+  button { width: 100%; border: 0; border-radius: 9999px; background: #194f3b; color: #fdfbf7; font: inherit; font-weight: 600; padding: .9rem 1.5rem; cursor: pointer; transition: background .15s; }
+  button:hover { background: #143f30; }
+  button[disabled] { opacity: .6; cursor: wait; }
+  .msg { display: none; border-radius: .75rem; padding: .7rem 1rem; font-size: .85rem; font-weight: 600; margin-bottom: 1rem; }
+  .msg.error { display: block; background: #fdf6ec; color: #8c4d1d; border: 1px solid #f2cf95; }
+  .alt { text-align: center; margin-top: 1.5rem; font-size: .85rem; color: rgba(21,33,29,.55); }
+  .alt a { color: #194f3b; font-weight: 600; text-decoration: none; border-bottom: 1px solid currentColor; cursor: pointer; }
 </style>
 </head>
 <body>
+
+<div class="gate" id="login-gate">
+  <div class="card">
+    <div class="logo"><img src="/assets/img/logo.webp" alt="Walts Charity and Empowerment Foundation logo"></div>
+    <h1>Content Manager</h1>
+    <p class="sub">Walts Charity &amp; Empowerment Foundation — sign in to edit the website.</p>
+    <p class="msg" id="gate-msg"></p>
+    <form id="gate-form">
+      <label for="gate-email">Email</label>
+      <input id="gate-email" type="email" autocomplete="username" required>
+      <label for="gate-password">Password</label>
+      <input id="gate-password" type="password" autocomplete="current-password" required>
+      <button type="submit" id="gate-submit">Sign in</button>
+    </form>
+    <p class="alt">Team member with a GitHub account? <a id="gate-github">Log in with GitHub instead</a></p>
+  </div>
+</div>
+
 <script>window.CMS_MANUAL_INIT = true;</script>
 <script src="/admin/config.js"></script>
 <script src="https://unpkg.com/decap-cms@^3.1.2/dist/decap-cms.js" crossorigin="anonymous"></script>
-<script>CMS.init({ config: window.WCEF_CMS_CONFIG });</script>
+<script>
+(function () {
+  'use strict';
+
+  var USER_KEY = 'decap-cms-user';
+  var GITHUB_FLAG = 'wcef-github-login';
+
+  function storedUser() {
+    try { return JSON.parse(localStorage.getItem(USER_KEY) || 'null'); } catch (e) { return null; }
+  }
+
+  function startCMS() {
+    sessionStorage.removeItem(GITHUB_FLAG);
+    var gate = document.getElementById('login-gate');
+    if (gate) gate.remove();
+    CMS.init({ config: window.WCEF_CMS_CONFIG });
+  }
+
+  var user = storedUser();
+  var wantsGithub = sessionStorage.getItem(GITHUB_FLAG) === '1';
+
+  if (user && user.token) {
+    // Already signed in (email/password or GitHub) — go straight to the CMS.
+    startCMS();
+    return;
+  }
+
+  if (wantsGithub) {
+    // Show Decap's own login screen (GitHub button) instead of the gate.
+    startCMS();
+    return;
+  }
+
+  // Hide the Decap root until login completes so the gate is the only UI.
+  var style = document.createElement('style');
+  style.textContent = 'body > #nc-root, body > .nc-app { display: none !important; }';
+  document.head.appendChild(style);
+
+  var form = document.getElementById('gate-form');
+  var msg = document.getElementById('gate-msg');
+  var submitBtn = document.getElementById('gate-submit');
+  var githubLink = document.getElementById('gate-github');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    msg.className = 'msg';
+    msg.textContent = '';
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Signing in…';
+
+    fetch('/api/auth/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        email: document.getElementById('gate-email').value,
+        password: document.getElementById('gate-password').value
+      })
+    })
+      .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
+      .then(function (res) {
+        if (!res.ok || !res.j.ok || !res.j.token) throw new Error(res.j.error || 'Sign-in failed.');
+        localStorage.setItem(USER_KEY, JSON.stringify({ token: res.j.token, backendName: 'github' }));
+        location.reload();
+      })
+      .catch(function (err) {
+        msg.className = 'msg error';
+        msg.textContent = err.message || 'Sign-in failed — please try again.';
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Sign in';
+      });
+  });
+
+  githubLink.addEventListener('click', function () {
+    sessionStorage.setItem(GITHUB_FLAG, '1');
+    startCMS();
+  });
+})();
+</script>
 </body>
 </html>

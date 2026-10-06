@@ -12,34 +12,35 @@ You edit at /admin  →  saved to GitHub  →  Vercel rebuilds the site  →  li
 
 ## 1. One-time setup (~5 minutes, done once)
 
-The dashboard needs a "GitHub OAuth App" so you can log in with your GitHub account.
+The dashboard signs editors in with an **email + password**. Credentials are checked
+against the `ADMIN_USERS` environment variable in Vercel, and saving content uses a
+GitHub token (`GITHUB_CONTENT_TOKEN`) stored next to it. These were configured during
+setup — this section is here in case they ever need to change.
 
-1. Go to **https://github.com/settings/developers** → **OAuth Apps** → **New OAuth App**.
-2. Fill in:
-   - **Application name:** `Walt Foundation website admin`
-   - **Homepage URL:** `https://www.waltscharityef.com`
-   - **Authorization callback URL:** `https://www.waltscharityef.com/api/auth/callback`
-3. Click **Register application**, then **Generate a new client secret**.
-4. Copy the **Client ID** and **Client secret**.
-5. Go to the Vercel dashboard → the `waltfoundation` project → **Settings** →
-   **Environment Variables** and add two variables (for *Production*, *Preview* and
-   *Development*):
-   - `GITHUB_OAUTH_CLIENT_ID` = the Client ID
-   - `GITHUB_OAUTH_CLIENT_SECRET` = the Client secret
-6. Redeploy the site once (Vercel → Deployments → ⋯ → Redeploy) so the new variables
-   take effect.
+**Change the password or add another editor:**
+1. Vercel dashboard → the `waltfoundation` project → **Settings** → **Environment Variables** → edit `ADMIN_USERS`.
+2. It is a JSON list — one object per editor:
+   ```json
+   [{"email":"admin@waltscharityef.com","password":"the-password"},
+    {"email":"second@waltscharityef.com","password":"another-password"}]
+   ```
+3. Redeploy once (Deployments → ⋯ → Redeploy) so the change takes effect.
 
-Done. From now on, open **/admin** and click **Login with GitHub**.
+**Renew the GitHub token (only if saving ever starts failing):**
+1. GitHub → Settings → Developer settings → Personal access tokens → **Tokens (classic)**.
+2. "Walt Foundation website content" — regenerate it and paste the new value into the
+   `GITHUB_CONTENT_TOKEN` environment variable in Vercel, then redeploy.
 
-> **Who can log in?** Only GitHub accounts that have write access to the
-> `MoyebiAyo/waltfoundation` repository. To give someone else access, add them as a
-> collaborator on the GitHub repository (Settings → Collaborators).
+**Optional GitHub login:** editors who prefer GitHub can still use the
+"Log in with GitHub instead" link on the sign-in page. It needs the GitHub OAuth app
+("Walt Foundation website admin") and the `GITHUB_OAUTH_CLIENT_ID` /
+`GITHUB_OAUTH_CLIENT_SECRET` environment variables in Vercel — already configured.
 
 ---
 
 ## 2. Everyday use
 
-1. Open **https://www.waltscharityef.com/admin** and log in with GitHub.
+1. Open **https://www.waltscharityef.com/admin** and sign in with your email and password.
 2. Pick a collection in the left sidebar:
 
 | Sidebar entry | What it controls |
@@ -85,9 +86,10 @@ Done. From now on, open **/admin** and click **Login with GitHub**.
   lastmod and uploaded-image optimisation all happen in this step.
 - Editing `content/*.json` by hand and running `npm run build` works exactly the
   same as editing in the dashboard.
-- **`/admin`** is Decap CMS (open source) configured in `admin/config.yml`.
-  Login is handled by `api/auth/request.js` + `api/auth/callback.js` using the
-  GitHub OAuth env vars above.
+- **`/admin`** is Decap CMS (open source) configured in `admin/config.js`. The
+  sign-in form posts to `api/auth/login.js`, which checks the credentials and hands
+  the browser a GitHub content token; "Log in with GitHub instead" uses
+  `api/auth/request.js` + `api/auth/callback.js` (GitHub OAuth app flow).
 - If an edit breaks something: the previous version is one click away — either
   revert the commit on GitHub, or fix the values back in the dashboard.
 
