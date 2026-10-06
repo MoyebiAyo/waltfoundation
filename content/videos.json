@@ -1,0 +1,44 @@
+{
+  "items": [
+    {
+      "title": "Christmas outreach — feeding the poor and less-privileged children",
+      "eyebrow": "Christmas outreach",
+      "description": "Feeding the poor and less-privileged children on Christmas — hot meals, full plates and full hearts, captured on film.",
+      "duration": "9:38",
+      "poster": "assets/img/video-xmas.webp",
+      "src": "assets/videos/xmas-feeding.mp4",
+      "youtubeId": "",
+      "uploadDate": "2026-09-27"
+    },
+    {
+      "title": "Feeding & community relief",
+      "eyebrow": "Feeding & community relief",
+      "description": "Hot meals cooked in bulk and served to children and families — relief you can watch happen.",
+      "duration": "9:34",
+      "poster": "assets/img/video-feeding.webp",
+      "src": "assets/videos/feeding-relief.mp4",
+      "youtubeId": "",
+      "uploadDate": "2026-09-18"
+    },
+    {
+      "title": "Behind the scenes — relief materials printing",
+      "eyebrow": "Behind the scenes",
+      "description": "Every outreach begins long before the field — relief materials printed and prepared with care.",
+      "duration": "5:18",
+      "poster": "assets/img/video-printing.webp",
+      "src": "assets/videos/relief-materials-printing.mp4",
+      "youtubeId": "",
+      "uploadDate": "2026-09-18"
+    },
+    {
+      "title": "Reaching the unreached — school pupils relief",
+      "eyebrow": "Reaching the unreached",
+      "description": "Learning and relief items placed in the hands of pupils other programmes never reach.",
+      "duration": "5:42",
+      "poster": "assets/img/video-school.webp",
+      "src": "assets/videos/school-pupils-relief.mp4",
+      "youtubeId": "",
+      "uploadDate": "2026-09-18"
+    }
+  ]
+}

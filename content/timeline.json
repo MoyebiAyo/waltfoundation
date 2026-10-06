@@ -1,0 +1,36 @@
+{
+  "items": [
+    {
+      "date": "2023-06-07",
+      "dateLabel": "June 7, 2023",
+      "title": "Incorporated as a legal entity",
+      "description": "Walts Charity and Empowerment Foundation is incorporated with the Corporate Affairs Commission — RC No. 7007514, giving it full legal standing under Nigerian law.",
+      "accent": "amber",
+      "link": {}
+    },
+    {
+      "date": "2023-12-14",
+      "dateLabel": "December 14, 2023",
+      "title": "Registered against money laundering & terrorist financing",
+      "description": "Special Control Unit Against Money Laundering (SCUML) registration — RN: SC 301401186 — positions the Foundation for institutional funding and partnership.",
+      "accent": "amber",
+      "link": {}
+    },
+    {
+      "date": "2026-06-01",
+      "dateLabel": "[Year certified] · current certificate valid June 2026 – June 2027",
+      "title": "Certified to operate in Osun State",
+      "description": "The Ministry of Women Affairs, Children & Social Welfare certifies the Foundation as an operating NGO/CBO in Osun State.",
+      "accent": "amber",
+      "link": {}
+    },
+    {
+      "date": "2023-06-08",
+      "dateLabel": "2023 – today",
+      "title": "Outreaches across rural communities",
+      "description": "Feeding relief, school engagement and support for widows and children — every activity photographed and recorded in our public outreach log.",
+      "accent": "forest",
+      "link": { "label": "See the outreach log →", "href": "gallery.html#impact" }
+    }
+  ]
+}

@@ -7,8 +7,9 @@
     "build:css": "tailwindcss -i ./src/input.css -o ./assets/css/site.css --minify",
     "watch:css": "tailwindcss -i ./src/input.css -o ./assets/css/site.css --watch",
     "images": "node scripts/optimize-images.js",
-    "build": "npm run images && npm run build:css",
-    "vercel-build": "npm run build:css",
+    "build:content": "node scripts/build-content.js",
+    "build": "npm run images && npm run build:css && npm run build:content",
+    "vercel-build": "npm run build:css && npm run build:content",
     "dev": "npm run watch:css"
   },
   "devDependencies": {

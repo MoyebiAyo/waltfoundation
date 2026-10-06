@@ -135,27 +135,8 @@
     }, 5000);
   }
 
-  // ---------- Impact log (gallery.html#impact) ----------
-  function initImpact() {
-    var root = document.getElementById('impact-log');
-    if (!root || !window.IMPACT_OUTREACHES || !window.IMPACT_OUTREACHES.length) return;
-    var html = '';
-    window.IMPACT_OUTREACHES.forEach(function (o, i) {
-      var imgs = (o.images || []).map(function (im) {
-        return '<img data-lightbox data-full="' + im.full + '" data-caption="' + im.caption + '"' +
-          ' src="' + im.thumb + '" alt="' + im.alt + '" loading="lazy"' +
-          ' class="aspect-[4/3] w-full object-cover rounded-2xl ring-1 ring-ink-900/5 cursor-zoom-in hover:opacity-95 transition-opacity reveal">';
-      }).join('');
-      html +=
-        '<article class="reveal card p-7 sm:p-9" data-delay="' + (i * 80) + '">' +
-        '<p class="eyebrow">' + o.date + ' · ' + o.location + '</p>' +
-        '<h3 class="mt-3 font-display text-2xl font-600">' + o.title + '</h3>' +
-        '<p class="mt-3 text-ink-900/75 leading-relaxed text-pretty max-w-3xl">' + o.delivered + '</p>' +
-        (imgs ? '<div class="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-4">' + imgs + '</div>' : '') +
-        '</article>';
-    });
-    root.innerHTML = html;
-  }
+  // ---------- Impact log ----------
+  // The outreach log is rendered statically at build time (scripts/build-content.js).
 
   // ---------- Lightbox ----------
   function initLightbox() {
@@ -268,7 +249,8 @@
       });
     });
 
-    setAmount(250000);
+    var defaultAmount = root.getAttribute('data-default-amount') || 250000;
+    setAmount(defaultAmount);
   }
 
   // ---------- Footer year + active nav ----------
@@ -288,6 +270,6 @@
     else document.addEventListener('DOMContentLoaded', fn);
   }
   ready(function () {
-    initImpact(); initYouTube(); initHeroSlideshow(); initNav(); initReveal(); initLightbox(); initDonate(); initContactForm(); initMisc();
+    initYouTube(); initHeroSlideshow(); initNav(); initReveal(); initLightbox(); initDonate(); initContactForm(); initMisc();
   });
 })();

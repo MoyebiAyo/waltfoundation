@@ -1,0 +1,82 @@
+{
+  "org": {
+    "name": "Walts Charity and Empowerment Foundation",
+    "shortName": "Walts Foundation",
+    "tagline": "Restoring dignity, safety and opportunity to women, children, widows and orphans in rural Nigeria.",
+    "foundingYear": "2023"
+  },
+  "compliance": {
+    "utilityBarFull": "CAC RC: 7007514 · SCUML: SC 301401186 · Osun State Certified",
+    "utilityBarShort": "CAC · SCUML · Osun Certified",
+    "cacLabel": "CAC Incorporation",
+    "cacNumber": "RC No. 7007514",
+    "cacDate": "June 7, 2023",
+    "scumlNumber": "RN: SC 301401186",
+    "boardNote": "Board of Trustees: Bridget Ogundipe Adewale Ogundipe"
+  },
+  "contact": {
+    "email": "enquiry@waltscharityef.com",
+    "phoneDisplay": "0806 996 8347",
+    "phoneHref": "tel:+2348069968347",
+    "whatsappDisplay": "0811 327 3077",
+    "whatsappHref": "https://wa.me/2348113273077",
+    "region": "Nigeria — rural communities (Osun State)",
+    "regionNote": "Currently certified to operate within Osun State by the Ministry of Women Affairs, Children & Social Welfare, with a focus on rural communities across Nigeria.",
+    "topics": [
+      "General enquiry",
+      "Partnership & CSR",
+      "Donation / Support",
+      "Volunteering",
+      "Media & Press"
+    ]
+  },
+  "social": {
+    "facebook": "https://web.facebook.com/profile.php?id=61556262047565",
+    "instagram": "https://www.instagram.com/waltscharityemp.foundation/"
+  },
+  "donation": {
+    "tiers": [
+      250000,
+      500000,
+      1000000,
+      2000000,
+      2500000
+    ],
+    "defaultAmount": 250000
+  },
+  "bank": {
+    "domiciliary": {
+      "label": "Domiciliary account",
+      "bank": "United Bank for Africa (UBA)",
+      "accountName": "Walt's Charity and Empowerment Foundation",
+      "accountNumber": "3004316069",
+      "logo": "assets/img/uba-logo.webp",
+      "logoAlt": "United Bank for Africa (UBA) logo",
+      "logoClass": "h-10 w-auto"
+    },
+    "naira": {
+      "label": "Naira account",
+      "bank": "First City Monument Bank (FCMB)",
+      "accountName": "Walt's Charity and Empowerment Foundation",
+      "accountNumber": "1052240847",
+      "logo": "assets/img/fcmb-logo.webp",
+      "logoAlt": "FCMB (First City Monument Bank) logo",
+      "logoClass": "h-10 w-auto rounded-lg"
+    }
+  },
+  "stats": [
+    {
+      "value": "4",
+      "label": "Programme areas"
+    },
+    {
+      "value": "3",
+      "label": "Compliance certifications"
+    },
+    {
+      "value": "2023",
+      "label": "Incorporated"
+    }
+  ],
+  "visionQuote": "A future where no woman, child, or widow in rural Nigeria is left without protection, education, or the means to rebuild her life."
+}

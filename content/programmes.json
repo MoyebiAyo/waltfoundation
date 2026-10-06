@@ -1,0 +1,44 @@
+{
+  "items": [
+    {
+      "title": "Education & Girl-Child Support",
+      "summary": "Education pathways and protection for under-age girls, survivors of abuse, and under-resourced mothers — keeping girls in school and building routes to self-sufficiency.",
+      "detail": "Education pathways and protection for under-age girls, survivors of sexual violence and forced marriage, and under-resourced mothers in rural settings — combining schooling support with routes to self-sufficiency.",
+      "donateBlurb": "schooling and protection pathways for girls and under-resourced mothers.",
+      "cardImage": "assets/img/outreach-19.webp",
+      "cardImageAlt": "Pupils gathered during a school engagement outreach",
+      "thumbImage": "assets/img/outreach-19-thumb.webp",
+      "thumbImageAlt": "Pupils gathered during a school engagement outreach"
+    },
+    {
+      "title": "Child Welfare & Protection",
+      "summary": "Healthcare, shelter and education for sick, impoverished, abandoned and orphaned children — and removal of children from abusive environments into schooling and psychosocial support.",
+      "detail": "Healthcare, shelter and education for sick, impoverished, abandoned and orphaned children — plus active removal of children from abusive environments, with schooling and psychosocial support through recovery and reintegration.",
+      "donateBlurb": "healthcare, shelter, education and safe recovery for vulnerable children.",
+      "cardImage": "assets/img/outreach-06.webp",
+      "cardImageAlt": "Healthcare, shelter and protection for children in need",
+      "thumbImage": "assets/img/outreach-06-thumb.webp",
+      "thumbImageAlt": "Healthcare, shelter and education support for children"
+    },
+    {
+      "title": "Feeding & Community Relief",
+      "summary": "Food packs and community relief for households in acute need — reaching families that mainstream support too often misses, so children stay fed and in school.",
+      "detail": "Food packs and community relief for households in acute need — stabilising families so children stay fed, in school and cared for while longer-term support takes root.",
+      "donateBlurb": "food packs and relief for households in acute need.",
+      "cardImage": "assets/img/outreach-18.webp",
+      "cardImageAlt": "Food packs prepared for distribution at a community relief outreach",
+      "thumbImage": "assets/img/outreach-18-thumb.webp",
+      "thumbImageAlt": "Bread and food packs prepared for community distribution"
+    },
+    {
+      "title": "Women & Widow Empowerment",
+      "summary": "Financial and emotional support for young widows facing sudden loss — stabilising households and rebuilding sustainable livelihoods.",
+      "detail": "Financial and emotional support for young widows facing sudden loss, helping them stabilize households and rebuild sustainable livelihoods.",
+      "donateBlurb": "helping widows stabilize households and rebuild livelihoods.",
+      "cardImage": "assets/img/outreach-15.webp",
+      "cardImageAlt": "Widow empowerment and household stabilization support",
+      "thumbImage": "assets/img/outreach-15-thumb.webp",
+      "thumbImageAlt": "Widow empowerment support in the community"
+    }
+  ]
+}

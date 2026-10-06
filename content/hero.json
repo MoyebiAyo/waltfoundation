@@ -1,0 +1,34 @@
+{
+  "eyebrow": "Walts Charity & Empowerment Foundation",
+  "titleLine1": "Dignity",
+  "titleLine2": "restored",
+  "subtitle": "A registered Nigerian non-profit working in rural communities — educating children, protecting girls, delivering feeding relief and empowering widows.",
+  "primaryCta": {
+    "label": "Partner With Us",
+    "href": "contact.html#partner"
+  },
+  "secondaryCta": {
+    "label": "See Our Impact",
+    "href": "gallery.html#impact"
+  },
+  "slides": [
+    {
+      "image": "assets/img/hero.webp"
+    },
+    {
+      "image": "assets/img/hero-team.webp"
+    },
+    {
+      "image": "assets/img/outreach-19.webp"
+    },
+    {
+      "image": "assets/img/outreach-18.webp"
+    },
+    {
+      "image": "assets/img/outreach-16.webp"
+    },
+    {
+      "image": "assets/img/outreach-17.webp"
+    }
+  ]
+}
