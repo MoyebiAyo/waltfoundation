@@ -1,6 +1,6 @@
-// Decap CMS configuration (loaded by admin/index.html via an absolute path,
+// Decap CMS configuration (loaded by admin/index.html — the global must NOT be named CMS_CONFIG, which Decap treats specially and uses raw, skipping normalization) — via an absolute path,
 // which keeps it working under Vercel cleanUrls where /admin has no trailing slash).
-window.CMS_CONFIG = {
+window.WCEF_CMS_CONFIG = {
   "backend": {
     "name": "github",
     "repo": "MoyebiAyo/waltfoundation",
