@@ -12,16 +12,20 @@ function sendText(res, statusCode, message) {
 }
 
 function resultPage(tokenJson, padding) {
-  // The CMS (opener) sends "authorizing:github"; we reply with the token.
+  // Protocol (see decap-cms-lib-auth NetlifyAuthenticator):
+  // 1. this page announces "authorizing:github" to its opener (the CMS window);
+  // 2. the CMS checks the sender origin and echoes the message back;
+  // 3. on the echo, this page replies with the token payload.
   return '<!doctype html><html><body>' + padding + '<scr' + 'ipt>' +
     '(function(){' +
     'function receiveMessage(e){' +
-    'console.log("receiveMessage %o", e);' +
+    'if (e.data === "authorizing:github") {' +
     'window.removeEventListener("message", receiveMessage);' +
     'e.source.postMessage("authorization:github:success:" + ' + JSON.stringify(tokenJson) + ', e.origin);' +
     '}' +
+    '}' +
     'window.addEventListener("message", receiveMessage);' +
-    'console.log("Waiting for message from CMS...");' +
+    'if (window.opener) { window.opener.postMessage("authorizing:github", "*"); }' +
     '})();' +
     '</scr' + 'ipt></body></html>';
 }
