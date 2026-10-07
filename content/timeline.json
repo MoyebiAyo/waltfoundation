@@ -30,7 +30,7 @@
       "title": "Outreaches across rural communities",
       "description": "Feeding relief, school engagement and support for widows and children — every activity photographed and recorded in our public outreach log.",
       "accent": "forest",
-      "link": { "label": "See the outreach log →", "href": "gallery.html#impact" }
+      "link": { "label": "See the outreach log →", "href": "/gallery#impact" }
     }
   ]
 }

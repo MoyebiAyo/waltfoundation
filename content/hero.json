@@ -5,11 +5,11 @@
   "subtitle": "A registered Nigerian non-profit working in rural communities — educating children, protecting girls, delivering feeding relief and empowering widows.",
   "primaryCta": {
     "label": "Partner With Us",
-    "href": "contact.html#partner"
+    "href": "/contact#partner"
   },
   "secondaryCta": {
     "label": "See Our Impact",
-    "href": "gallery.html#impact"
+    "href": "/gallery#impact"
   },
   "slides": [
     {

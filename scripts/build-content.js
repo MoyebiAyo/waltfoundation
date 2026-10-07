@@ -401,7 +401,7 @@ const builders = {
       '      </div>\n' +
       '      <div class="mt-8 pt-8 border-t border-cream-50/10 flex flex-wrap gap-3">\n' +
       '        <a href="#contact-donate" class="btn btn-primary">Send proof of payment</a>\n' +
-      '        <a href="contact.html" class="btn btn-ghost text-cream-50 border-cream-50/30 hover:bg-cream-50/10">Contact us</a>\n' +
+      '        <a href="/contact" class="btn btn-ghost text-cream-50 border-cream-50/30 hover:bg-cream-50/10">Contact us</a>\n' +
       '      </div>';
   },
 
